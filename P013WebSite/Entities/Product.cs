@@ -15,8 +15,8 @@ namespace P013WebSite.Entities
         public int Stock { get; set; }
         [Display(Name = "Resim"), StringLength(50)]
         public string? Image { get; set; }
-        [Display(Name = "Eklenme Tarihi")]
-        public DateTime CreateDate { get; set; }
+        [Display(Name = "Eklenme Tarihi"), ScaffoldColumn(false)] // ScaffoldColumn oluşacak viewlarda CreateDate alanının otomatik oluşturulmasını engeller
+        public DateTime CreateDate { get; set; } = DateTime.Now;
         [Display(Name = "Kategori")]
         public int CategoryId { get; set; } // CategoryId db deki foreign key olacak
         [Display(Name = "Kategori")]
