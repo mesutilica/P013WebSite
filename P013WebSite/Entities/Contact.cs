@@ -15,7 +15,7 @@ namespace P013WebSite.Entities
         public string? Phone { get; set; }
         [Display(Name = "Mesajınız")]
         public string Message { get; set; }
-        [Display(Name = "Eklenme Tarihi")]
+        [Display(Name = "Eklenme Tarihi"), ScaffoldColumn(false)]
         public DateTime? CreateDate { get; set; } = DateTime.Now;
     }
 }
