@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using P013WebSite.Data;
+using P013WebSite.Entities;
 
 namespace P013WebSite.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("Admin"), Authorize]
     public class ContactsController : Controller
     {
         private readonly DatabaseContext _context;
@@ -36,10 +39,12 @@ namespace P013WebSite.Areas.Admin.Controllers
         // POST: ContactsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> CreateAsync(Contact collection)
         {
             try
             {
+                await _context.Contacts.AddAsync(collection);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -49,18 +54,20 @@ namespace P013WebSite.Areas.Admin.Controllers
         }
 
         // GET: ContactsController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            return View();
+            return View(await _context.Contacts.FindAsync(id));
         }
 
         // POST: ContactsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(int id, Contact collection)
         {
             try
             {
+                _context.Contacts.Update(collection);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -70,18 +77,20 @@ namespace P013WebSite.Areas.Admin.Controllers
         }
 
         // GET: ContactsController/Delete/5
-        public ActionResult Delete(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
-            return View();
+            return View(await _context.Contacts.FindAsync(id));
         }
 
         // POST: ContactsController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<ActionResult> DeleteAsync(int id, Contact collection)
         {
             try
             {
+                _context.Contacts.Remove(collection);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch

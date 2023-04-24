@@ -1,10 +1,10 @@
-﻿@model Contact
+﻿@model User
 
 @{
-    ViewData["Title"] = "Ekle";
+    ViewData["Title"] = "Kullanıcı Ekle";
 }
 
-<h1>Ekle</h1>
+<h1>Kullanıcı Ekle</h1>
 
 <hr />
 <div class="row">
@@ -32,9 +32,19 @@
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Message" class="control-label"></label>
-                <input asp-for="Message" class="form-control" />
-                <span asp-validation-for="Message" class="text-danger"></span>
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsAdmin" /> @Html.DisplayNameFor(model => model.IsAdmin)
+                </label>
             </div>
             <div class="form-group">
                 <input type="submit" value="Ekle" class="btn btn-primary" />
