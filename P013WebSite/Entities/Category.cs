@@ -11,5 +11,6 @@ namespace P013WebSite.Entities
         public string? Description { get; set; }
         [Display(Name = "Eklenme Tarihi")]
         public DateTime? CreateDate { get; set; } = DateTime.Now; // sonradan 1 class a bu şekilde property eklersek yeni bir migration eklememiz gerekir! yoksa proje çalışırken hata alırız.
+        public virtual List<Product>? Products { get; set; } // 1 kategorinin 1 den çok ürünü olabilir(bire çok ilişki)
     }
 }
