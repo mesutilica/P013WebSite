@@ -1,8 +1,28 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Slider>
+@{
+    ViewData["Title"] = "Anasayfa";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">P013 Kurumsal Web Site</h1>
+    <p>Asp.Net Core ile geliştirdiğimiz yönetim panelli web sitesi.</p>
+</div>
+
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        @foreach (var item in Model)
+        {
+            <div class="carousel-item @(item == Model.FirstOrDefault() ? "active" : "")">
+                <img src="/Img/@item.Image" class="d-block w-100" alt="...">
+            </div>
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>

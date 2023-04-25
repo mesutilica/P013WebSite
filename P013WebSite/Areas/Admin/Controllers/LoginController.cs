@@ -55,9 +55,11 @@ namespace P013WebSite.Areas.Admin.Controllers
             }
             return View();
         }
-        public IActionResult Logout()
+        [Route("Logout")] // adres çubuğundan yaptığımız yönlendirmede login/logout yerine sadece logout a gidince çıkış yapsın.
+        public async Task<IActionResult> Logout()
         {
-            return View();
+            await HttpContext.SignOutAsync();
+            return Redirect("/Admin/Login");
         }
     }
 }
