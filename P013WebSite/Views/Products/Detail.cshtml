@@ -25,7 +25,7 @@
             @Html.DisplayNameFor(model => model.Price)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
+            @Html.DisplayFor(model => model.Price) ₺
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Stock)
@@ -37,13 +37,13 @@
             @Html.DisplayNameFor(model => model.Image)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Image)
+            <img src="/Img/@Html.DisplayFor(model => model.Image)" alt="@Model.Name" height="333" />
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Category)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Category.Id)
+            @Html.DisplayFor(model => model.Category.Name)
         </dd>
     </dl>
 </div>
