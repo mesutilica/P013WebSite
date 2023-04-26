@@ -22,6 +22,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Anasayfa</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Products" asp-action="Index">Tüm Ürünlerimiz</a>
+                        </li>
                         @await Component.InvokeAsync("Categories")
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
@@ -30,6 +33,9 @@
                             <a class="nav-link text-dark" asp-controller="Home" asp-action="ContactUs">İletişim</a>
                         </li>
                     </ul>
+                    <form method="get" asp-controller="Products" asp-action="Search" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                        <input name="q" type="search" class="form-control" placeholder="Ara..." aria-label="Search">
+                    </form>
                 </div>
             </div>
         </nav>

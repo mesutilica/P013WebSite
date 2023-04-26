@@ -3,10 +3,7 @@
     ViewData["Title"] = "Anasayfa";
 }
 
-<div class="text-center">
-    <h1 class="display-4">P013 Kurumsal Web Site</h1>
-    <p>Asp.Net Core ile geliştirdiğimiz yönetim panelli web sitesi.</p>
-</div>
+
 
 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
@@ -25,4 +22,18 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
+</div>
+
+<div class="text-center">
+    <h1 class="display-4">Ürünlerimiz</h1>
+    <p>Sizin İçin Seçtiklerimiz</p>
+</div>
+
+<div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        @foreach (var item in Model.Products)
+        {
+            <partial name="_ProductView" model="item" />
+        }
+    </div>
 </div>

@@ -1,20 +1,20 @@
-﻿@model Category
+﻿@model IEnumerable<Product>
 @{
-    ViewData["Title"] = Model.Name;
+    ViewData["Title"] = "Bulunun Ürünler";
 }
 
 <header class="bg-dark py-3">
     <div class="container px-1 px-lg-3 my-1">
         <div class="text-center text-white">
-            <h1 class="display-4 fw-bolder">@Model.Name</h1>
-            <p class="lead fw-normal text-white-50 mb-0">@Model.Description</p>
+            <h1 class="display-4 fw-bolder">Ürünler</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Aradığınız Ürünler..</p>
         </div>
     </div>
 </header>
 
 <div class="container px-4 px-lg-5 mt-5">
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-        @foreach (var item in Model.Products)
+        @foreach (var item in Model)
         {
             <partial name="_ProductView" model="item" />
         }

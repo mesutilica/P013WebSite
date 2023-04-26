@@ -13,9 +13,15 @@ namespace P013WebSite.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            return View();
+            var urunler = await _context.Products.Where(p => p.IsActive).ToListAsync();
+            return View(urunler);
+        }
+        public async Task<IActionResult> Search(string q)
+        {
+            var urunler = await _context.Products.Where(p => p.Name.Contains(q)).ToListAsync();
+            return View(urunler);
         }
         public async Task<IActionResult> DetailAsync(int? id)
         {
