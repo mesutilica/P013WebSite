@@ -1,0 +1,10 @@
+﻿
+Projeyi bitirdikten sonra yayınlamak için
+
+* Projenin veritabanı ayarlarını satın aldığımız hosting üzerindeki sunucu veritabanı ayarlarıyla 
+ databasecontext üzerinden değiştiriyoruz!
+* Projeye sağ tıklayıp açılan menüden Publish seçeneğine tıklıyoruz.
+* Açılan pencereden folder seçeneğini seçerek next deyip folder location dan klasör yolu belirleyip finish butonuna basarak ayarları tamamlıyoruz.
+
+* Ayarları tamamladıktan sonra close deyip gelen ekrandan Publish butonuna tıklayarak çıktı alma işlemini başlatıp, tamamlandıktan sonra seçtiğimiz konumdaki dosyaları kopyalayıp sunucuya yollamamız gerekir.
+* Sunucu yükleme işlemlerini aldığımız sunucunun plesk paneli üzerinden veya filezilla gibi bir programla yapabiliriz.
